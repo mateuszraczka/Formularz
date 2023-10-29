@@ -1,0 +1,71 @@
+﻿@model Dane;
+@{
+    ViewData["Title"] = "Form";
+}
+
+<form asp-action="Form" method="post" id="form1">
+    <div>
+        <label asp-for="Imie">Imie: </label>
+        <input asp-for="Imie" type="text"/>
+    </div>
+    @Html.ValidationMessageFor(model => model.Imie,"", new { @class = "text-danger" })
+    <div>
+        <label asp-for="Nazwisko">Nazwisko: </label>
+        <input asp-for="Nazwisko" type="text"/>
+    </div>
+    @Html.ValidationMessageFor(model => model.Nazwisko,"", new { @class = "text-danger" })
+    <div>
+        <label asp-for="Email">Email: </label>
+        <input asp-for="Email" type="email" />
+    </div>
+    @Html.ValidationMessageFor(model => model.Email,"", new { @class = "text-danger" })
+    <div>
+        <label asp-for="Haslo">Haslo: </label>
+        <input asp-for="Haslo" type="password"/>
+    </div>
+    @Html.ValidationMessageFor(model => model.Haslo,"", new { @class = "text-danger" })
+    <div>
+        <label asp-for="Podtwierdz_Haslo">Podtwierdz haslo: </label>
+        <input asp-for="Podtwierdz_Haslo" type="password"/>
+    </div>
+    @Html.ValidationMessageFor(model => model.Podtwierdz_Haslo,"", new { @class = "text-danger" })
+    <div>
+        <label asp-for="Numer_Telefonu">Numer telefonu: </label>
+        <input asp-for="Numer_Telefonu" type="tel"/>
+    </div>
+    @Html.ValidationMessageFor(model => model.Numer_Telefonu,"", new { @class = "text-danger" })
+    <div>
+        <label asp-for="Wiek">Wiek: </label>
+        <input asp-for="Wiek" type="number"/>
+    </div>
+    @Html.ValidationMessageFor(model => model.Wiek,"", new { @class = "text-danger" })
+    <div>
+        <label asp-for="Miasto">Miasto: </label>
+        <select asp-for="Miasto">
+            <option>Kraków</option>
+            <option>Warszawa</option>
+            <option>Lublin</option>
+            <option>Poznań</option>
+            <option>Gdańsk</option>
+        </select>
+    </div>
+    @Html.ValidationMessageFor(model => model.Miasto,"", new { @class = "text-danger" })
+    <div>
+        <input type="submit" />
+    </div>
+</form>
+
+<div>
+    <button class="btn-outline-warning btn-lg" id="resetButton">Wyczyść formularz</button>
+</div>
+
+<script>
+    function resetForm() {
+        document.getElementById("form1").reset();
+        console.log("aaa")
+    }
+
+    let resetButton = document.getElementById("resetButton");
+    resetButton.addEventListener("click", resetForm);
+
+</script>
